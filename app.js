@@ -22,7 +22,7 @@ const fetchRecipes = async(query) => {
             return;
         }
 
-        response.meals.forEach(meal => {
+           response.meals.forEach(meal => {
             const recipeDiv = document.createElement('div');
             recipeDiv.classList.add('recipe');
             recipeDiv.innerHTML = `
@@ -48,6 +48,8 @@ const fetchRecipes = async(query) => {
            <p><strong>Area:</strong> ${meal.strArea}</p>
            <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
     `;
+
+                
     recipeDetails.classList.add('active');
 });
 
@@ -61,16 +63,19 @@ const fetchRecipes = async(query) => {
     }
 }
 
- searchBtn.addEventListener('click', (e) => {
+  searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const searchInput = searchBox.value.trim();
     if(searchInput){
         fetchRecipes(searchInput);
     }
+      
 });
 
-  recipeCloseBtn.addEventListener('click', () => {
+recipeCloseBtn.addEventListener('click', () => {
     recipeDetails.classList.remove('active');
+
+    
 });
 
 
